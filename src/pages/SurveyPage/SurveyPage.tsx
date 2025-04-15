@@ -5,6 +5,7 @@ import { Button, Steps } from "@telegram-apps/telegram-ui";
 import { ChangeEvent, useState } from "react";
 import { useSurvey } from "../../helpers/survayList";
 import { useNavigate } from "react-router-dom";
+import ImageWithLoading from "../../components/ImageWithLoading/ImageWithLoading";
 
 const SurveyPage = () => {
   const [step, setStep] = useState<number>(0);
@@ -38,12 +39,12 @@ const SurveyPage = () => {
       <div className="page">
         <div className="container flex justify-center">
           <div className="max-w-[402px] flex flex-col items-center py-[32px]">
-            <img
-              className="w-3xs mb-[16px]"
+            <ImageWithLoading
+              className="w-3xs mb-[16px] h-[256px] rounded-full"
               src="./images/survay.png"
               alt="duck"
             />
-            <div className="smtg:text-[32px] text-[24px] font-semibold text-center leading-[100%] max-w-[279px] tracking-tightext mb-[16px] smtg:mb-[65px]">
+            <div className="h-[72px] smtg:text-[32px] text-[24px] font-semibold text-center leading-[100%] max-w-[279px] tracking-tightext mb-[16px] smtg:mb-[65px]">
               {surveyArray[step]?.name || ""}
             </div>
 

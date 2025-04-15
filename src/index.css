@@ -52,3 +52,15 @@ body {
 .tgui-b8dfba0b5c3d054c {
   padding: 0px;
 }
+
+.tgui-97f2df57786b02dc:before {
+  background-color: #f4f4f7;
+}
+
+.tg-icon path {
+  fill: var(--color-accenttext);
+}
+
+.btn-small span {
+  font-size: 11px;
+}

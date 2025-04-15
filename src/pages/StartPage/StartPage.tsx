@@ -2,6 +2,7 @@ import { Button } from "@telegram-apps/telegram-ui";
 import { useTranslation } from "react-i18next";
 import AnimatedPage from "../../components/AnimatedPage/AnimatedPage";
 import { Link } from "react-router-dom";
+import ImageWithLoading from "../../components/ImageWithLoading/ImageWithLoading";
 
 const StartPage = () => {
   const { t } = useTranslation();
@@ -18,8 +19,8 @@ const StartPage = () => {
               </span>
               ?
             </p>
-            <img
-              className="w-3xs mb-[65px] smtg:mb-[95px]"
+            <ImageWithLoading
+              className="w-3xs h-[256px] mb-[65px] smtg:mb-[95px]"
               src="./images/start.png"
               alt="duck"
             />

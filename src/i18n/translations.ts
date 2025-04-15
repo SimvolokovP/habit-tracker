@@ -31,6 +31,10 @@ const translations = {
         { text: "I don't experience such problems.", value: 11 },
         { text: "Something else", value: 12 },
       ],
+      add_new: "Add new",
+      progress: "Progress",
+      your_habits_will_be_here: "Your habits will be here.",
+      click_add_btn: "click “Add new” to add a new one",
     },
   },
   ru: {
@@ -65,6 +69,10 @@ const translations = {
         { text: "У меня нет таких проблем.", value: 11 },
         { text: "Что-то еще", value: 12 },
       ],
+      add_new: "Добавить",
+      progress: "Прогресс",
+      your_habits_will_be_here: "Ваши привычки будут здесь.",
+      click_add_btn: "нажмите «Добавить», чтобы добавить новую",
     },
   },
 };
