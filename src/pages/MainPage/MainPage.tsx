@@ -12,37 +12,17 @@ const myHabits: IHabit[] = [
   {
     id: 1,
     name: "Habit 1",
-    dateStart: "1",
-    dateEnd: "1",
+    dateStart: new Date("2025-04-08"),
+    dateEnd: new Date("2025-04-24"),
     status: "not_completed",
   },
-  {
-    id: 2,
-    name: "Habit 2",
-    dateStart: "1",
-    dateEnd: "1",
-    status: "not_completed",
-  },
-  {
-    id: 3,
-    name: "Habit 3",
-    dateStart: "1",
-    dateEnd: "1",
-    status: "not_completed",
-  },
+
   {
     id: 4,
     name: "Habit 4",
-    dateStart: "1",
-    dateEnd: "1",
+    dateStart: new Date("2025-04-08"),
+    dateEnd: new Date("2025-04-29"),
     status: "completed",
-  },
-  {
-    id: 5,
-    name: "Habit 5",
-    dateStart: "1",
-    dateEnd: "1",
-    status: "not_completed",
   },
 ];
 

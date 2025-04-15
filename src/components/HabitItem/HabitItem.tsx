@@ -1,6 +1,10 @@
-import { FC, RefObject, useRef, useState } from "react";
+import { FC, RefObject, useEffect, useRef, useState } from "react";
 import { IHabit } from "../../models/IHabit";
 import { Cell, Tooltip } from "@telegram-apps/telegram-ui";
+import {
+  calculateFullDaysPassed,
+  calculateProgressToEnd,
+} from "../../helpers/calculateHabitTime";
 
 interface HabitItemProps {
   habit: IHabit;
@@ -11,24 +15,42 @@ const HabitItem: FC<HabitItemProps> = ({ habit, isLast }) => {
   const ref = useRef<RefObject<HTMLElement>>(null);
   const [shown, setShown] = useState<boolean>(true);
 
+  const [itemProgress, setItemProgress] = useState<number>();
+  const [itemDaysPassed, setItemDaysPassed] = useState<number>();
+
+  useEffect(() => {
+    const percentage = calculateProgressToEnd(habit);
+    setItemProgress(percentage);
+    const passedDays = calculateFullDaysPassed(habit);
+    setItemDaysPassed(passedDays);
+  }, []);
+
+  const isProcess = habit.status !== "completed";
+
   return (
     <li>
       <Cell
-        className={`flex items-center justify-between cell-reset h-[68px] ${
+        className={`flex items-center justify-between cell-reset h-[68px] relative z-[1] ${
           habit.status !== "completed" ? "bg-appsecondary" : "bg-appgray"
         }`}
         ref={ref}
         onClick={() => setShown(false)}
       >
-        <div className="text-[15px] font-normal flex flex-col gap-[2px]">
+        {isProcess && (
+          <div
+            style={{ width: `${itemProgress}%` }}
+            className="absolute left-0 z-[1] bg-appyellow h-full top-0 bottom-0 rounded-xl"
+          />
+        )}
+        <div className="text-[15px] font-normal flex flex-col gap-[2px] relative z-[2]">
           <div>{habit.name}</div>
           <span className="text-apphint">
-            {habit.status !== "completed" ? "Todays left" : "Not completed"}
+            {isProcess ? `${itemDaysPassed} days left` : "Not completed"}
           </span>
         </div>
-        <div className="text-[28px] font-semibold">
-          {habit.status !== "completed" ? (
-            "1"
+        <div className="text-[28px] font-semibold relative z-[2]">
+          {isProcess ? (
+            `${itemProgress}% done`
           ) : (
             <svg
               width="36"
