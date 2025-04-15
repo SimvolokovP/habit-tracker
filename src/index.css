@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-appback: var(--tg-theme-bg-color);
+  --color-accenttext: var(--tg-theme-accent-text-color);
+
+  --tracking-tightext: -0.025em;
+
+  --breakpoint-smtg: 25rem;
+}
+
+html {
+  touch-action: none;
+  height: 100lvh;
+  overflow: hidden;
+}
+
+body {
+  @apply bg-appback;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  background: var(--tg-theme-bg-color);
+  height: 100lvh;
+  overflow: hidden;
+}
+
+.page {
+  @apply h-screen flex flex-col justify-center items-center overflow-y-hidden w-full;
+}
+
+.container {
+  @apply max-w-7xl mx-auto my-0 py-0 px-10;
+}
+
+.tgui-8e15431b81f6601e .tgui-db9be63c4fecf79b {
+  background: transparent;
+}
+
+.greeting-text {
+  font-size: 42px;
+  line-height: 52px;
+}
+
+@media (max-width: 400px) {
+  .greeting-text {
+    font-size: 36px;
+    line-height: 46px;
+  }
+}
+
+.tgui-b8dfba0b5c3d054c {
+  padding: 0px;
+}
