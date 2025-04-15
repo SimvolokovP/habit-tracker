@@ -4,6 +4,9 @@
 @theme {
   --color-appback: var(--tg-theme-bg-color);
   --color-accenttext: var(--tg-theme-accent-text-color);
+  --color-appsecondary: var(--tg-theme-secondary-bg-color);
+  --color-apphint: var(--tg-theme-hint-color);
+  --color-appgray: #dadada;
 
   --tracking-tightext: -0.025em;
 
@@ -61,6 +64,25 @@ body {
   fill: var(--color-accenttext);
 }
 
+.tg-icon ellipse {
+  fill: var(--color-accenttext);
+}
+
 .btn-small span {
   font-size: 11px;
+}
+
+.cell-reset {
+  @apply px-[16px] rounded-xl;
+}
+
+.cell-reset .tgui-8735a62be5a8b8a7 {
+  padding: 0 !important;
+}
+
+.cell-reset .tgui-8735a62be5a8b8a7 h6 span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
