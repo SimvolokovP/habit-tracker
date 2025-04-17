@@ -30,7 +30,7 @@ const startApp = async () => {
 
     root.render(
       <StrictMode>
-        <BrowserRouter>
+        <BrowserRouter basename="/habit-tracker">
           <AppRoot>
             <App />
           </AppRoot>

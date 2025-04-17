@@ -2,6 +2,7 @@
   "name": "tracker",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://SimvolokovP.github.io/habit-tracker",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,6 +15,7 @@
     "@telegram-apps/sdk-react": "^3.2.0",
     "@telegram-apps/telegram-ui": "^2.1.8",
     "framer-motion": "^12.7.2",
+    "gh-pages": "^6.3.0",
     "i18next": "^24.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
