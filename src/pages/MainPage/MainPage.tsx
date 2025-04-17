@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+
 import AnimatedPage from "../../components/AnimatedPage/AnimatedPage";
 
 import { Icon24ChevronLeft } from "@telegram-apps/telegram-ui/dist/icons/24/chevron_left";
@@ -28,7 +28,7 @@ const myHabits: IHabit[] = [
 ];
 
 const MainPage = () => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
 
   return (
     <AnimatedPage>

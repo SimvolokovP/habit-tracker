@@ -1,6 +1,6 @@
 import { FC, RefObject, useEffect, useRef, useState } from "react";
 import { IHabit } from "../../models/IHabit";
-import { Cell, Tooltip } from "@telegram-apps/telegram-ui";
+import { Cell } from "@telegram-apps/telegram-ui";
 import {
   calculateFullDaysPassed,
   calculateProgressToEnd,
@@ -11,7 +11,7 @@ interface HabitItemProps {
   isLast: boolean;
 }
 
-const HabitItem: FC<HabitItemProps> = ({ habit, isLast }) => {
+const HabitItem: FC<HabitItemProps> = ({ habit }) => {
   const ref = useRef<RefObject<HTMLElement>>(null);
   const [shown, setShown] = useState<boolean>(true);
 
@@ -23,6 +23,7 @@ const HabitItem: FC<HabitItemProps> = ({ habit, isLast }) => {
     setItemProgress(percentage);
     const passedDays = calculateFullDaysPassed(habit);
     setItemDaysPassed(passedDays);
+    console.log(shown);
   }, []);
 
   const isProcess = habit.status !== "completed";
