@@ -7,6 +7,7 @@ import EmptyHabits from "../../components/EmptyHabits/EmptyHabits";
 import MainPageActions from "../../components/MainPageActions/MainPageActions";
 import { IHabit } from "../../models/IHabit";
 import HabitsList from "../../components/HabitsList/HabitsList";
+import TelegramNavigation from "../../components/TelegramNavigation/TelegramNavigation";
 
 const myHabits: IHabit[] = [
   {
@@ -31,25 +32,27 @@ const MainPage = () => {
 
   return (
     <AnimatedPage>
-      <div className="page">
-        <div className="container flex justify-center">
-          <div className="flex flex-col justify-between h-screen py-[32px] max-w-[402px]">
-            {!myHabits.length ? (
-              <EmptyHabits />
-            ) : (
-              <HabitsList habits={myHabits} />
-            )}
-            <div className="flex w-full justify-between items-end">
-              <div className="font-semibold text-[22px] flex gap-[8px] items-center smtg:text-[28px]">
-                <Icon24ChevronLeft />
-                <div>14 Feb</div>
-                <Icon24ChevronRight />
+      <TelegramNavigation isMainPage={true}>
+        <div className="page">
+          <div className="container flex justify-center">
+            <div className="flex flex-col justify-between h-screen py-[32px] max-w-[402px]">
+              {!myHabits.length ? (
+                <EmptyHabits />
+              ) : (
+                <HabitsList habits={myHabits} />
+              )}
+              <div className="flex w-full justify-between items-end">
+                <div className="font-semibold text-[22px] flex gap-[8px] items-center smtg:text-[28px]">
+                  <Icon24ChevronLeft />
+                  <div>14 Feb</div>
+                  <Icon24ChevronRight />
+                </div>
+                <MainPageActions isShareStoryBtnVisible={!!myHabits.length} />
               </div>
-              <MainPageActions isShareStoryBtnVisible={!!myHabits.length} />
             </div>
           </div>
         </div>
-      </div>
+      </TelegramNavigation>
     </AnimatedPage>
   );
 };
