@@ -3,6 +3,7 @@
 
 @theme {
   --color-appback: var(--tg-theme-bg-color);
+  --color-apptext: var(--tg-theme-text-color);
   --color-accenttext: var(--tg-theme-accent-text-color);
   --color-appsecondary: var(--tg-theme-secondary-bg-color);
   --color-apphint: var(--tg-theme-hint-color);
@@ -90,4 +91,41 @@ body {
 
 .tgui-c3d21871b48e0ba3 {
   border-radius: 16px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tgui-b8dfba0b5c3d054c:hover {
+    background: var(--tgui--tertiary_bg_color);
+  }
+}
+
+/* .tgui-99a630d0096f2169 {
+  background-color: var(--tgui--secondary_fill);
+} */
+
+.actions__item .tgui-8735a62be5a8b8a7 {
+  padding: 12px 0;
+}
+
+.actions__item--first .tgui-8735a62be5a8b8a7 {
+  padding-top: 0;
+}
+
+.actions__item--last .tgui-8735a62be5a8b8a7 {
+  padding-bottom: 0;
+  color: #df2c2c;
+}
+
+.actions__list {
+  -webkit-box-shadow: 0px 0px 1px 1px var(--tgui--outline);
+  -moz-box-shadow: 0px 0px 1px 1px var(--tgui--outline);
+  box-shadow: 0px 0px 1px 1px var(--tgui--outline);
+  background-color: var(--tgui--secondary_bg_color);
+  padding: 12px 16px;
+  border-radius: 16px;
+  width: 239px;
+  position: absolute;
+  z-index: 20;
+  top: 75px;
+  right: 0;
 }

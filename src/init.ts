@@ -19,6 +19,7 @@ import {
   backButton,
   miniApp,
   settingsButton,
+  viewport,
 } from "@telegram-apps/sdk-react";
 
 export async function init(options: {
@@ -93,6 +94,12 @@ export async function init(options: {
       mountViewport().then(() => {
         bindViewportCssVars();
         expandViewport();
+
+        if (viewport.requestFullscreen.isAvailable()) {
+          viewport.requestFullscreen();
+          viewport.isFullscreen();
+        }
+
         swipeBehavior.isMounted() && disableVerticalSwipes();
       }),
   ]);

@@ -1,6 +1,9 @@
 import { Button } from "@telegram-apps/telegram-ui";
+import { useTranslation } from "react-i18next";
 
 const ShareStoryBtn = () => {
+  const { t } = useTranslation();
+
   return (
     <Button
       onClick={() => console.log("share")}
@@ -31,7 +34,7 @@ const ShareStoryBtn = () => {
       }
       mode="bezeled"
     >
-      Share story
+      {t("shareStory")}
     </Button>
   );
 };

@@ -7,6 +7,7 @@ import { useSurvey } from "../../helpers/survayList";
 import { useNavigate } from "react-router-dom";
 import ImageWithLoading from "../../components/ImageWithLoading/ImageWithLoading";
 import TelegramNavigation from "../../components/TelegramNavigation/TelegramNavigation";
+import { handleHapticFeedback } from "../../helpers/handleHapticFeedback";
 
 const SurveyPage = () => {
   const [step, setStep] = useState<number>(0);
@@ -35,6 +36,15 @@ const SurveyPage = () => {
     setUserSurvay(updatedUserSurvay);
   };
 
+  const handleNextBtnClick = () => {
+    setStep((prev) => prev + 1);
+  };
+
+  const handleFinishBtnClick = () => {
+    console.log(userSurvay);
+    navigate("/main");
+  };
+
   return (
     <AnimatedPage>
       <TelegramNavigation isMainPage={true}>
@@ -46,7 +56,7 @@ const SurveyPage = () => {
                 src="./images/survay.png"
                 alt="duck"
               />
-              <div className="h-[72px] smtg:text-[32px] text-[24px] font-semibold text-center leading-[100%] max-w-[279px] tracking-tightext mb-[16px] smtg:mb-[65px]">
+              <div className="h-[72px] smtg:text-[32px] text-[24px] font-semibold text-center leading-[100%] max-w-[279px] tracking-tightext mb-[12px] smtg:mb-[65px]">
                 {surveyArray[step]?.name || ""}
               </div>
 
@@ -58,10 +68,9 @@ const SurveyPage = () => {
                 {step + 1 === surveyArray.length ? (
                   <Button
                     disabled={!userSurvay[step]?.length}
-                    onClick={() => {
-                      console.log(userSurvay);
-                      navigate("/main");
-                    }}
+                    onClick={() =>
+                      handleHapticFeedback(handleFinishBtnClick, "medium")
+                    }
                     stretched
                   >
                     {t("finish")}
@@ -69,7 +78,9 @@ const SurveyPage = () => {
                 ) : (
                   <Button
                     disabled={!userSurvay[step]?.length}
-                    onClick={() => setStep((prev) => prev + 1)}
+                    onClick={() =>
+                      handleHapticFeedback(handleNextBtnClick, "medium")
+                    }
                     stretched
                   >
                     {t("next")}

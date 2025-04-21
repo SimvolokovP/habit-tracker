@@ -1,6 +1,4 @@
-
 import AnimatedPage from "../../components/AnimatedPage/AnimatedPage";
-
 import { Icon24ChevronLeft } from "@telegram-apps/telegram-ui/dist/icons/24/chevron_left";
 import { Icon24ChevronRight } from "@telegram-apps/telegram-ui/dist/icons/24/chevron_right";
 import EmptyHabits from "../../components/EmptyHabits/EmptyHabits";
@@ -17,7 +15,13 @@ const myHabits: IHabit[] = [
     dateEnd: new Date("2025-04-24"),
     status: "not_completed",
   },
-
+  {
+    id: 2,
+    name: "Habit 2",
+    dateStart: new Date("2025-04-08"),
+    dateEnd: new Date("2025-04-29"),
+    status: "not_completed",
+  },
   {
     id: 4,
     name: "Habit 4",
@@ -35,7 +39,7 @@ const MainPage = () => {
       <TelegramNavigation isMainPage={true}>
         <div className="page">
           <div className="container flex justify-center">
-            <div className="flex flex-col justify-between h-screen py-[32px] max-w-[402px]">
+            <div className="flex flex-col justify-between h-screen pb-[32px] pt-[96px] max-w-[402px]">
               {!myHabits.length ? (
                 <EmptyHabits />
               ) : (
@@ -47,6 +51,7 @@ const MainPage = () => {
                   <div>14 Feb</div>
                   <Icon24ChevronRight />
                 </div>
+
                 <MainPageActions isShareStoryBtnVisible={!!myHabits.length} />
               </div>
             </div>

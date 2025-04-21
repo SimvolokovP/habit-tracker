@@ -4,9 +4,16 @@ import AnimatedPage from "../../components/AnimatedPage/AnimatedPage";
 import { Link } from "react-router-dom";
 import ImageWithLoading from "../../components/ImageWithLoading/ImageWithLoading";
 import TelegramNavigation from "../../components/TelegramNavigation/TelegramNavigation";
+import { hapticFeedback } from "@telegram-apps/sdk-react";
 
 const StartPage = () => {
   const { t } = useTranslation();
+
+  const handleClick = () => {
+    if (hapticFeedback.impactOccurred.isAvailable()) {
+      hapticFeedback.impactOccurred("medium");
+    }
+  };
 
   return (
     <AnimatedPage>
@@ -27,7 +34,12 @@ const StartPage = () => {
                 alt="duck"
               />
               <Link to={"/survey"} style={{ width: "100%" }}>
-                <Button style={{ width: "100%" }} size="l" mode="filled">
+                <Button
+                  onClick={handleClick}
+                  style={{ width: "100%" }}
+                  size="l"
+                  mode="filled"
+                >
                   {t("lets_go")}
                 </Button>
               </Link>

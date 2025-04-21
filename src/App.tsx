@@ -1,15 +1,8 @@
-import { useNavigate } from "react-router-dom";
-import AppRouter from "./router/AppRouter";
-import { useEffect } from "react";
 
-const isFirst = false;
+import AppRouter from "./router/AppRouter";
 
 function App() {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    isFirst ? navigate("/") : navigate("/main");
-  }, []);
+  
 
   return (
     <>

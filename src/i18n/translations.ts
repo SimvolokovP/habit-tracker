@@ -35,6 +35,11 @@ const translations = {
       progress: "Progress",
       your_habits_will_be_here: "Your habits will be here.",
       click_add_btn: "click “Add new” to add a new one",
+      shareStory: "Share story",
+      iWant: "I want",
+      to_do_something: "to do something",
+      per_day: "per day",
+      add_a_habit: "Add a habit"
     },
   },
   ru: {
@@ -73,6 +78,11 @@ const translations = {
       progress: "Прогресс",
       your_habits_will_be_here: "Ваши привычки будут здесь.",
       click_add_btn: "нажмите «Добавить», чтобы добавить новую",
+      shareStory: "Поделиться",
+      iWant: "Я хочу",
+      to_do_something: "делать что-то",
+      per_day: "в день",
+      add_a_habit: "Добавить привычку"
     },
   },
 };

@@ -26,7 +26,7 @@ const TelegramNavigation: FC<TelegramNavigationProps> = ({
       showBackButton();
 
       return onBackButtonClick(() => {
-        navigate("/");
+        navigate(-1);
       });
     } else {
       hideBackButton();

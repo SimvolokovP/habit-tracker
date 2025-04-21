@@ -40,7 +40,7 @@ const MainPageActions: FC<MainPageActionsProps> = ({
             </svg>
           </InlineButtonsItem>
         </Link>
-        <Link to={"/habit"}>
+        <Link to={"/main"}>
           <InlineButtonsItem
             className="btn-small"
             onClick={() => console.log("Click")}
