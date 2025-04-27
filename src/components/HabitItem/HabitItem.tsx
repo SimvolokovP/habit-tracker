@@ -45,7 +45,7 @@ const HabitItem: FC<HabitItemProps> = ({ habit }) => {
       >
         <Cell
           className={`flex items-center justify-between cell-reset h-[68px] relative z-[1] ${
-            habit.status !== "completed" ? "bg-appsecondary" : "bg-appgray"
+            habit.status !== "completed" ? "bg-[var(--tg-theme-bg-color)]" : "bg-appgray"
           }`}
           ref={ref}
         >
