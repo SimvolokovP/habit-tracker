@@ -6,6 +6,8 @@ import MainPageActions from "../../components/MainPageActions/MainPageActions";
 import { IHabit } from "../../models/IHabit";
 import HabitsList from "../../components/HabitsList/HabitsList";
 import TelegramNavigation from "../../components/TelegramNavigation/TelegramNavigation";
+import { useState } from "react";
+import DateSelect from "../../components/DateSelect/DateSelect";
 
 const myHabits: IHabit[] = [
   {
@@ -29,10 +31,31 @@ const myHabits: IHabit[] = [
     dateEnd: new Date("2025-04-29"),
     status: "completed",
   },
+  {
+    id: 5,
+    name: "Habit 1",
+    dateStart: new Date("2025-04-08"),
+    dateEnd: new Date("2025-04-24"),
+    status: "not_completed",
+  },
+  {
+    id: 6,
+    name: "Habit 2",
+    dateStart: new Date("2025-04-08"),
+    dateEnd: new Date("2025-04-29"),
+    status: "not_completed",
+  },
+  {
+    id: 7,
+    name: "Habit 4",
+    dateStart: new Date("2025-04-08"),
+    dateEnd: new Date("2025-04-29"),
+    status: "completed",
+  },
 ];
 
 const MainPage = () => {
-  // const { t } = useTranslation();
+  const [currentDate, setCurrentDate] = useState(new Date("2025-02-14"));
 
   return (
     <AnimatedPage>
@@ -46,12 +69,10 @@ const MainPage = () => {
                 <HabitsList habits={myHabits} />
               )}
               <div className="flex w-full justify-between items-end">
-                <div className="font-semibold text-[22px] flex gap-[8px] items-center smtg:text-[28px]">
-                  <Icon24ChevronLeft />
-                  <div>14 Feb</div>
-                  <Icon24ChevronRight />
-                </div>
-
+                <DateSelect
+                  currentDate={currentDate}
+                  setCurrentDate={setCurrentDate}
+                />
                 <MainPageActions isShareStoryBtnVisible={!!myHabits.length} />
               </div>
             </div>

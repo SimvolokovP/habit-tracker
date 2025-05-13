@@ -8,7 +8,7 @@ interface HabitsListProps {
 
 const HabitsList: FC<HabitsListProps> = ({ habits }) => {
   return (
-    <ul className="flex flex-col gap-[16px]">
+    <ul className="flex flex-col gap-[16px] max-h-[404px] overflow-y-auto">
       {habits.map((h, index) => (
         <HabitItem key={h.id} habit={h} isLast={index === habits.length - 1} />
       ))}

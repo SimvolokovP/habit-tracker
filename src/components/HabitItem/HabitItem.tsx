@@ -1,4 +1,12 @@
-import { FC, MouseEvent, RefObject, useEffect, useRef, useState } from "react";
+import {
+  CSSProperties,
+  FC,
+  MouseEvent,
+  RefObject,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { IHabit } from "../../models/IHabit";
 import { Cell } from "@telegram-apps/telegram-ui";
 import {
@@ -20,6 +28,9 @@ const HabitItem: FC<HabitItemProps> = ({ habit }) => {
   const { openItemId, openMenu } = useItemActionsList();
   const isOpen = openItemId === habit.id;
 
+  const [menuPosition, setMenuPosition] = useState<"top" | "bottom">("bottom");
+  const [menuStyles, setMenuStyles] = useState<CSSProperties>({});
+
   const [itemProgress, setItemProgress] = useState<number>();
   const [itemDaysPassed, setItemDaysPassed] = useState<number>();
 
@@ -32,20 +43,64 @@ const HabitItem: FC<HabitItemProps> = ({ habit }) => {
 
   const isProcess = habit.status !== "completed";
 
-  const handleClick = (e: MouseEvent<HTMLDivElement>) => {
+  // const handleClick = (e: MouseEvent<HTMLDivElement>) => {
+
+  // };
+
+  const itemRef = useRef<HTMLDivElement | null>(null);
+
+  const handleOpenMenu = (e: MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     openMenu(habit.id);
+    if (itemRef.current) {
+      const rect = itemRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const spaceBelow = viewportHeight - rect.bottom;
+      const spaceAbove = rect.top;
+
+      const menuHeight = 348;
+
+      const itemPlusGapHeight = 84;
+      const itemHeight = 68;
+
+      if (spaceBelow >= menuHeight || spaceBelow > spaceAbove) {
+        setMenuPosition("bottom");
+        console.log(rect.bottom);
+        setMenuStyles({
+          position: "absolute",
+          top: rect.bottom - itemPlusGapHeight + 16,
+          left: rect.left + window.scrollX,
+          minWidth: rect.width,
+        });
+      } else {
+        setMenuPosition("top");
+        console.log("top");
+        setMenuStyles({
+          position: "absolute",
+          top: rect.top - menuHeight - itemHeight - 16,
+          left: rect.left + window.scrollX,
+          minWidth: rect.width,
+        });
+      }
+    }
   };
 
   return (
-    <li className="relative habit-item">
-      {isOpen && <ItemActionsList />}
+    <li className="habit-item">
+      {isOpen && (
+        <div style={menuStyles} className="menu-container">
+          <ItemActionsList />
+        </div>
+      )}
       <div
-        onClick={(e) => handleHapticFeedback(() => handleClick(e), "medium")}
+        ref={itemRef}
+        onClick={(e) => handleHapticFeedback(() => handleOpenMenu(e), "medium")}
       >
         <Cell
           className={`flex items-center justify-between cell-reset h-[68px] relative z-[1] ${
-            habit.status !== "completed" ? "bg-[var(--tg-theme-bg-color)]" : "bg-appgray"
+            habit.status !== "completed"
+              ? "bg-[var(--tg-theme-bg-color)]"
+              : "bg-appgray"
           }`}
           ref={ref}
         >

@@ -1,21 +1,19 @@
 import { InlineButtonsItem } from "@telegram-apps/telegram-ui/dist/components/Blocks/InlineButtons/components/InlineButtonsItem/InlineButtonsItem";
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
-import ShareStoryBtn from "../ShareStoryBtn/ShareStoryBtn";
+
 import { Link } from "react-router-dom";
 
 interface MainPageActionsProps {
   isShareStoryBtnVisible?: boolean;
 }
 
-const MainPageActions: FC<MainPageActionsProps> = ({
-  isShareStoryBtnVisible = false,
-}) => {
+const MainPageActions: FC<MainPageActionsProps> = () => {
   const { t } = useTranslation();
 
   return (
     <div className="flex gap-[16px] flex-col">
-      {isShareStoryBtnVisible && <ShareStoryBtn />}
+      {/* {isShareStoryBtnVisible && <ShareStoryBtn />} */}
       <div className="flex items-center gap-[16px] w-[160px]">
         <Link to={`/habit`}>
           <InlineButtonsItem
